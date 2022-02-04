@@ -1,16 +1,30 @@
-import React from 'react';
-import { StyleSheet ,Text, View,TouchableNativeFeedback} from 'react-native';
+import React,{useRef} from 'react';
+import { StyleSheet ,Text, View,TouchableNativeFeedback,Dimensions} from 'react-native';
 
 interface FButtonProps{
-    position:'br'|'bl',
+    position:'br'|'bl'|'c',
     title:String,
     action:()=>void
 }
 
 export const FButton = (props:FButtonProps) => {
     const {position,title,action}=props
+    const determinarPosicion=(pos:String)=>{
+        switch(pos){
+            case 'br':
+                return styles.fabLocationBR;
+            case 'bl':
+                return styles.fabLocationBL;
+            case 'c':
+                return {left:(width/2)-30};
+            default:
+                return styles.fabLocationBL;
+        }
+    }
+    const {width}=Dimensions.get('screen')
+
   return (
-    <View style={[styles.button,(position==='bl')?styles.fabLocationBL:styles.fabLocationBR]}>
+    <View style={[styles.button,determinarPosicion(position)]}>
         <TouchableNativeFeedback  onPress={action} background={TouchableNativeFeedback.Ripple('white',true,30)}>
             <View style={styles.fab}>
                 <Text style={styles.text}> {title} </Text>
