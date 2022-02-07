@@ -7,6 +7,7 @@ import {
 import { BoxObjectModel } from './src/screens/BoxObjectModelScreen';
 import { Contador } from './src/screens/ContadorScreen';
 import { DimensionesScreen } from './src/screens/DimensionesScreen';
+import { FlexBoxScreen } from './src/screens/FlexBoxScreen';
 import { HolaMundoScreen } from './src/screens/HolaMundoScreen';
 
 
@@ -19,7 +20,8 @@ const App = () => {
       {/* <HolaMundoScreen/>
       <Contador/> */}
       {/* <BoxObjectModel/> */}
-      <DimensionesScreen/>
+      {/* <DimensionesScreen/> */}
+      <FlexBoxScreen/>
     </SafeAreaView>
     
   );
